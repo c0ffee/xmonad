@@ -92,7 +92,7 @@ main = do
 			borderWidth = 2,
 			normalBorderColor  = "#dddddd",
 			focusedBorderColor = "#ff0000",
-			modMask = mod4Mask,		-- use WIN key as MOD
+			modMask = mod1Mask,		-- use WIN key as MOD
 			terminal = "/usr/bin/terminator",
 
 			startupHook = setWMName "LG3D",
@@ -108,47 +108,47 @@ main = do
 			}
 	     } `additionalKeys` [
 	     		-- focus
-			((mod4Mask, xK_n),			windows W.focusDown),	-- focus next
-			((mod4Mask, xK_p),			windows W.focusUp),	-- focus prev
-			((mod4Mask .|. shiftMask, xK_n),	windows W.swapDown),	-- swap focus and next
-			((mod4Mask .|. shiftMask, xK_p),	windows W.swapUp),	-- swap focus and prev
-			((mod4Mask, xK_Return),			windows W.swapMaster),	-- swap master and focus
+			((mod1Mask, xK_n),			windows W.focusDown),	-- focus next
+			((mod1Mask, xK_p),			windows W.focusUp),	-- focus prev
+			((mod1Mask .|. shiftMask, xK_n),	windows W.swapDown),	-- swap focus and next
+			((mod1Mask .|. shiftMask, xK_p),	windows W.swapUp),	-- swap focus and prev
+			((mod1Mask, xK_Return),			windows W.swapMaster),	-- swap master and focus
 
- 			((mod4Mask, xK_KP_Subtract),		windows W.focusDown),	-- focus next
- 			((mod4Mask, xK_KP_Add),			windows W.focusUp),	-- focus prev
- 			((mod4Mask .|. shiftMask, xK_KP_Subtract), windows W.swapDown),	-- swap focus and next
- 			((mod4Mask .|. shiftMask, xK_KP_Add),	windows W.swapUp),	-- swap focus and prev
- 			((mod4Mask, xK_KP_Enter),		windows W.swapMaster),	-- swap master and focus
+ 			((mod1Mask, xK_KP_Subtract),		windows W.focusDown),	-- focus next
+ 			((mod1Mask, xK_KP_Add),			windows W.focusUp),	-- focus prev
+ 			((mod1Mask .|. shiftMask, xK_KP_Subtract), windows W.swapDown),	-- swap focus and next
+ 			((mod1Mask .|. shiftMask, xK_KP_Add),	windows W.swapUp),	-- swap focus and prev
+ 			((mod1Mask, xK_KP_Enter),		windows W.swapMaster),	-- swap master and focus
 
-			((mod4Mask .|. controlMask, xK_Return),	spawn "/usr/bin/xterm -e tmux attach"),	-- open terminal session
+			((mod1Mask .|. controlMask, xK_Return),	spawn "/usr/bin/xterm -e tmux attach"),	-- open terminal session
 
 			-- close/open window
-			((mod4Mask , xK_q),			kill),			-- close focus
+			((mod1Mask , xK_q),			kill),			-- close focus
 
 			-- execution, WM stuff
-	     		((mod4Mask, xK_Escape),			spawn "xscreensaver-command -lock"),
-			((mod4Mask, xK_z),			xmonadPrompt defaultXPConfig ),
-			((mod4Mask, xK_s),			spawn "sudo pm-suspend"),
-			((mod4Mask .|. shiftMask, xK_s),	spawn "sudo pm-hibernate"),
-			((mod4Mask, xK_x), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
-			((mod4Mask .|. shiftMask, xK_BackSpace), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
-			((mod4Mask, xK_BackSpace),		shellPrompt defaultXPConfig),
-			((mod4Mask .|. shiftMask, xK_m),	xmonadPrompt defaultXPConfig),
-			((mod4Mask .|. shiftMask, xK_space),	layoutPrompt defaultXPConfig),
-			((mod4Mask, xK_g),			windowPromptGoto  defaultXPConfig),
-			((mod4Mask .|. shiftMask, xK_g),	windowPromptBring  defaultXPConfig),
-			((mod4Mask .|. shiftMask, xK_q),	restart "xmonad" True),	-- reload config
-			((mod4Mask .|. shiftMask .|. controlMask , xK_q),
+     		((mod1Mask, xK_Escape),			spawn "xscreensaver-command -lock"),
+			((mod1Mask, xK_z),			xmonadPrompt defaultXPConfig ),
+			((mod1Mask, xK_s),			spawn "sudo pm-suspend"),
+			((mod1Mask .|. shiftMask, xK_s),	spawn "sudo pm-hibernate"),
+			((mod1Mask, xK_x), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
+			((mod1Mask .|. shiftMask, xK_BackSpace), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
+			((mod1Mask, xK_BackSpace),		shellPrompt defaultXPConfig),
+			((mod1Mask .|. shiftMask, xK_m),	xmonadPrompt defaultXPConfig),
+			((mod1Mask .|. shiftMask, xK_space),	layoutPrompt defaultXPConfig),
+			((mod1Mask, xK_g),			windowPromptGoto  defaultXPConfig),
+			((mod1Mask .|. shiftMask, xK_g),	windowPromptBring  defaultXPConfig),
+			((mod1Mask .|. shiftMask, xK_q),	restart "xmonad" True),	-- reload config
+			((mod1Mask .|. shiftMask .|. controlMask , xK_q),
 								io (exitWith ExitSuccess)),
 			((0 , xF86XK_AudioLowerVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2-"), 
 			((0 , xF86XK_AudioRaiseVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2+"),
 			((0 , xF86XK_AudioMute), spawn "amixer -D pulse set Master toggle && amixer -D pulse set Headphone toggle"),
 			-- CycleWS bindings
-			((mod4Mask, xK_Right),			moveTo Next HiddenNonEmptyWS),
-			((mod4Mask, xK_Left),			moveTo Prev HiddenNonEmptyWS),
-			((mod4Mask, xK_c),			moveTo Next EmptyWS),
-			((mod4Mask .|. shiftMask, xK_Right),	shiftTo Next AnyWS),
-			((mod4Mask .|. shiftMask, xK_Left),	shiftTo Prev AnyWS)
+			((mod1Mask, xK_Right),			moveTo Next HiddenNonEmptyWS),
+			((mod1Mask, xK_Left),			moveTo Prev HiddenNonEmptyWS),
+			((mod1Mask, xK_c),			moveTo Next EmptyWS),
+			((mod1Mask .|. shiftMask, xK_Right),	shiftTo Next AnyWS),
+			((mod1Mask .|. shiftMask, xK_Left),	shiftTo Prev AnyWS)
 
 			-- special keys
 			--

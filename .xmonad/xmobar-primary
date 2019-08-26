@@ -4,7 +4,8 @@ Config {
      font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
    , bgColor =      "black"
    , fgColor =      "grey"
-   , position =     TopW L 92 
+--   , position =     TopW L 92 
+   , position =     TopP 0 100
    -- , border =       BottomB
    , borderColor =  "#646464"
 

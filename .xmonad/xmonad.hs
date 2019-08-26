@@ -7,7 +7,7 @@ import System.Exit
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run(spawnPipe,unsafeSpawn)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.EZConfig(additionalMouseBindings)
 import Graphics.X11.ExtraTypes.XF86
@@ -84,8 +84,13 @@ myLayout = tiled ||| Mirror tiled ||| threetiled ||| Mirror threetiled ||| noBor
 
 
 main = do
+	spawn "~/.screenlayout/screen.sh"
+	spawn "trayer --edge top --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 18 --monitor 1 --padding 1"
+	spawn "xsetroot -solid black"
+	spawn "/usr/bin/seafile-applet"
+	spawn "nm-applet"
 	xmproc <- spawnPipe "/usr/bin/xmobar /home/m/.xmonad/xmobar-primary"
-	xmonad $ defaultConfig {
+	xmonad $ docks defaultConfig {
 
             -- Define the names of all workspaces
             workspaces = ["1:main","2:web","3:mail","4:chat","5:dev","6:media", "7:misc", "8:misc", "9:misc", "10:misc"],

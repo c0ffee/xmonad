@@ -84,7 +84,6 @@ myLayout = tiled ||| Mirror tiled ||| threetiled ||| Mirror threetiled ||| noBor
 
 
 main = do
-	spawn "~/.screenlayout/screen.sh"
 	spawn "trayer --edge top --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 18 --monitor 1 --padding 1"
 	spawn "xsetroot -solid black"
 	spawn "/usr/bin/seafile-applet"

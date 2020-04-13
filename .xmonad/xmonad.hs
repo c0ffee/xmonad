@@ -133,8 +133,8 @@ main = do
 			-- execution, WM stuff
      		((mod1Mask, xK_Escape),			spawn "xscreensaver-command -lock"),
 			((mod1Mask, xK_z),			xmonadPrompt defaultXPConfig ),
-			((mod1Mask, xK_s),			spawn "sudo pm-suspend"),
-			((mod1Mask .|. shiftMask, xK_s),	spawn "sudo pm-hibernate"),
+			((mod1Mask, xK_s),			spawn "systemctl suspend"),
+			((mod1Mask .|. shiftMask, xK_s),	spawn "systemctl hibernate"),
 			((mod1Mask, xK_x), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
 			((mod1Mask .|. shiftMask, xK_BackSpace), spawn "exe=`dmenu_path | dmenu -b -nb \"#220000\" -nf gray -sb red -sf white -fn \"-adobe-helvetica-medium-r-normal--14-100-*-*-*-*-*-*\"` && eval \"exec $exe\""),
 			((mod1Mask, xK_BackSpace),		shellPrompt defaultXPConfig),
